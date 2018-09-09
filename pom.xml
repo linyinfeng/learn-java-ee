@@ -36,6 +36,7 @@
         <module>cdi</module>
         <module>first-cup</module>
         <module>complex</module>
+        <module>jms</module>
     </modules>
     <properties>
         <!-- Use JRE 1.8 for GlassFish -->
