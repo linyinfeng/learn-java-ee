@@ -10,6 +10,85 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>jms-simple-message-ear</artifactId>
+    <packaging>ear</packaging>
+    <name>JMS Simple Message EAR</name>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.linyinfeng.projects</groupId>
+            <artifactId>jms-simple-message-client</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <type>app-client</type>
+        </dependency>
+        <dependency>
+            <groupId>com.linyinfeng.projects</groupId>
+            <artifactId>jms-simple-message-ejb</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <version>8</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <ejbModule>
+                            <groupId>com.linyinfeng.projects</groupId>
+                            <artifactId>jms-simple-message-ejb</artifactId>
+                            <bundleFileName>jms-simple-message-ejb.jar</bundleFileName>
+                        </ejbModule>
+                        <appClientModule>
+                            <groupId>com.linyinfeng.projects</groupId>
+                            <artifactId>jms-simple-message-client</artifactId>
+                        </appClientModule>
+                    </modules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-acr-plugin</artifactId>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>get-client-stubs</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>${glassfish.asadmin}</executable>
+                            <arguments>
+                                <argument>get-client-stubs</argument>
+                                <argument>--appname</argument>
+                                <argument>${project.build.finalName}</argument>
+                                <argument>./target</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>run-appclient</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>${glassfish.appclient}</executable>
+                            <arguments>
+                                <argument>-client</argument>
+                                <argument>./target/${project.build.finalName}Client.jar</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

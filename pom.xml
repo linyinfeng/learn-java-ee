@@ -55,6 +55,8 @@
         <cargo.configuration.glassfish.domain.name>
             domain1
         </cargo.configuration.glassfish.domain.name>
+        <glassfish.asadmin>${cargo.container.home}/bin/asadmin</glassfish.asadmin>
+        <glassfish.appclient>${cargo.container.home}/glassfish/bin/appclient</glassfish.appclient>
     </properties>
 
     <!-- Build Settings -->
@@ -103,6 +105,16 @@
         </plugins>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-acr-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>3.0.1</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-ejb-plugin</artifactId>

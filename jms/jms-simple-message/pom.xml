@@ -11,10 +11,16 @@
 
     <artifactId>jms-simple-message</artifactId>
     <name>JMS Simple Message</name>
+    <packaging>pom</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+    </dependencies>
     <modules>
         <module>jms-simple-message-ejb</module>
         <module>jms-simple-message-ear</module>
         <module>jms-simple-message-client</module>
     </modules>
-    <packaging>pom</packaging>
 </project>

@@ -10,6 +10,30 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>jms-simple-message-client</artifactId>
-
-
+    <packaging>app-client</packaging>
+    <name>JMS Simple Message Client</name>
+    <dependencies>
+        <dependency>
+            <groupId>com.linyinfeng.projects</groupId>
+            <artifactId>jms-simple-message-ejb</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-acr-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>jmssimplemessageclient.SimpleMessageClient</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
