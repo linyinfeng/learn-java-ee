@@ -12,5 +12,7 @@
     <name>EJB</name>
     <modules>
         <module>ejb-hello-bean</module>
+        <module>ejb-counter</module>
+        <module>ejb-cart</module>
     </modules>
 </project>
