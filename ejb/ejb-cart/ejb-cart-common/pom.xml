@@ -10,6 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ejb-cart-common</artifactId>
-
-
+    <name>EJB Cart Common</name>
+    <packaging>jar</packaging>
 </project>

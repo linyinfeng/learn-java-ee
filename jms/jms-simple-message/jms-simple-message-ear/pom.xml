@@ -37,12 +37,12 @@
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <modules>
                         <ejbModule>
-                            <groupId>com.linyinfeng.projects</groupId>
+                            <groupId>${project.groupId}</groupId>
                             <artifactId>jms-simple-message-ejb</artifactId>
                             <bundleFileName>jms-simple-message-ejb.jar</bundleFileName>
                         </ejbModule>
                         <appClientModule>
-                            <groupId>com.linyinfeng.projects</groupId>
+                            <groupId>${project.groupId}</groupId>
                             <artifactId>jms-simple-message-client</artifactId>
                         </appClientModule>
                     </modules>
