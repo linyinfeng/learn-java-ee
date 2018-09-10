@@ -17,13 +17,13 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>jms-simple-message-client</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
             <type>app-client</type>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>jms-simple-message-ejb</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
             <type>ejb</type>
         </dependency>
     </dependencies>
