@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>PrimeFaces Playground</title>
+        <h:outputStylesheet name="css/style.css" />
+    </h:head>
+    <h:body>
+        <h1>PrimeFaces Playground</h1>
+
+        <h2>p:accordionPanel</h2>
+        <p:accordionPanel>
+            <p:tab title="First Tab Title">
+                Content
+            </p:tab>
+            <p:tab title="Second Tab Title">
+                Content
+            </p:tab>
+        </p:accordionPanel>
+
+        <h2>p:ajax</h2>
+        <h:form>
+            <h:inputText value="#{ajaxHandler.text}">
+                <p:ajax update="ajax-out" />
+            </h:inputText>
+        </h:form>
+        <h:outputText id="ajax-out" value="#{ajaxHandler.text}" />
+
+        <h2>p:ajaxStatus</h2>
+        <p:ajaxStatus styleClass="ajax-status">
+            <f:facet name="start">
+                <p:graphicImage styleClass="ajax-status-facet" value="#{resource['images/loading.svg']}" />
+            </f:facet>
+            <f:facet name="error">
+                <span class="ajax-status-facet">Error</span>
+            </f:facet>
+            <f:facet name="success">
+                <span class="ajax-status-facet">Success</span>
+            </f:facet>
+            <f:facet name="default">
+                <span class="ajax-status-facet">Idle</span>
+            </f:facet>
+            <f:facet name="complete">
+                <span class="ajax-status-facet">Done</span>
+            </f:facet>
+        </p:ajaxStatus>
+
+        <h2>p:autoComplete</h2>
+        <h:form>
+            <p:autoComplete value="#{autoCompleteHandler.text}"
+                            completeMethod="${autoCompleteHandler.complete}">
+                <p:ajax update="auto-complete-out" event="itemSelect" />
+            </p:autoComplete>
+        </h:form>
+        <h:outputText id="auto-complete-out" value="#{autoCompleteHandler.text}" />
+
+        <h2>p:blockUI</h2>
+        <p:panel id="pnl" header="My Panel">
+            <p:commandButton id="saveBtn" value="Save" />
+        </p:panel>
+        <p:blockUI block="pnl" trigger="saveBtn">
+            <p:graphicImage value="#{resource['images/loading.svg']}" />
+        </p:blockUI>
+
+        <h2>p:breadCrumb</h2>
+        <p:breadCrumb>
+            <p:menuitem value="Categories" url="#" />
+            <p:menuitem value="Sports" url="#" />
+        </p:breadCrumb>
+
+        <h2>p:button</h2>
+        <h:commandButton value="Navigate"/>
+        <p:button value="Navigate"/>
+
+        <h2>p:calendar</h2>
+        <h:form>
+            <p:calendar locale="cn"
+                        pattern="MM/dd/yyyy HH:mm"
+                        navigator="true"
+                        showButtonPanel="true"
+                        value="#{dateSelectHandler.date}">
+                <p:ajax event="dateSelect"
+                        listener="#{dateSelectHandler.handleDateSelect}"
+                        update="calendar-msg" />
+            </p:calendar>
+        </h:form>
+        <p:messages id="calendar-msg" />
+        
+    </h:body>
+</html>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.linyinfeng.projects</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>primefaces-playground</artifactId>
+    <name>PrimeFaces Playground</name>
+    <packaging>war</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>all-themes</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>primefaces-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+</project>

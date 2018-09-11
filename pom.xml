@@ -26,6 +26,11 @@
                 <scope>test</scope>
                 <!--<optional>true</optional>-->
             </dependency>
+            <dependency>
+                <groupId>org.primefaces</groupId>
+                <artifactId>primefaces</artifactId>
+                <version>6.2</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <modules>
@@ -37,6 +42,7 @@
         <module>first-cup</module>
         <module>complex</module>
         <module>jms</module>
+        <module>primefaces</module>
     </modules>
     <properties>
         <!-- Use JRE 1.8 for GlassFish -->
