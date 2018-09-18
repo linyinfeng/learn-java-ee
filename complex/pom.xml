@@ -15,5 +15,6 @@
     <modules>
         <module>affable-bean</module>
         <module>upload-file-to-database</module>
+        <module>login</module>
     </modules>
 </project>
